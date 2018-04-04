@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <TextView
+        android:id="@+id/rap_textForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Rapport de visite"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:id="@+id/rap_medecinText"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="3dp"
+        android:text="Medecin : "
+        android:layout_below="@+id/rap_textForm"/>
+
+
+
+    <Spinner
+        android:id="@+id/rap_medecin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rap_textForm"
+        android:layout_toEndOf="@id/rap_medecinText"
+        android:layout_marginBottom="20dp" />
+
+
+    <EditText
+        android:id="@+id/rap_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Date"
+        android:inputType="date"
+        android:layout_below="@id/rap_medecin"
+        android:maxLength="10"/>
+
+    <EditText
+        android:id="@+id/rap_motif"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Motif"
+        android:layout_below="@id/rap_date"/>
+
+    <TextView
+        android:id="@+id/rap_medicamentText"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="3dp"
+        android:text="Medecament : "
+        android:layout_below="@+id/rap_motif"
+         />
+
+    <Spinner
+        android:id="@+id/rap_medicament"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rap_motif"
+        android:layout_toEndOf="@id/rap_medicamentText"/>
+
+    <EditText
+        android:id="@+id/rap_quantite"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rap_motif"
+        android:layout_toEndOf="@+id/rap_medicament"
+        android:hint="Quantité"
+        android:inputType="numberDecimal"/>
+
+    <EditText
+        android:id="@+id/rap_bilan"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:gravity="top"
+        android:hint="Bilan"
+        android:layout_below="@id/rap_medicament"/>
+
+    <Button
+        android:id="@+id/rap_send"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rap_bilan"
+        android:text="@string/validation"
+        android:layout_centerHorizontal="true"
+        style="@style/buttonNormal"/>
+
+
+</RelativeLayout>

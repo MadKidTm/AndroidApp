@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.widget.LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+
+    tools:context="com.gsb.alexa.gsbappli.MainActivity">
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:textAlignment="center"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/gsb_alpha"
+        android:layout_gravity="center"/>
+
+
+    <TextView
+        android:id="@+id/idInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/errorText"/>
+
+    <EditText
+        android:id="@+id/id"
+        style="@style/editTextForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/id"
+        android:textColorHint="#0174DF"
+        android:textAlignment="center"
+        />
+
+    <TextView
+        android:id="@+id/passwordInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        style="@style/errorText" />
+
+    <EditText
+        android:id="@+id/password"
+        style="@style/editTextForm"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:layout_marginBottom="80dp"
+
+        />
+
+    <Button
+        android:id="@+id/login"
+        style="@style/buttonNormal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:text="log in"
+        />
+
+
+</android.widget.LinearLayout>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="120dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginBottom="70dp"
+        android:layout_gravity="center"
+        android:background="@drawable/gsb_alpha"/>
+
+    <Button
+        android:id="@+id/rapportButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Rapports de visite"
+        style="@style/buttonNormal"
+        />
+
+    <Button
+        android:id="@+id/medecinButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/menu_medecins"
+        style="@style/buttonNormal"/>
+
+    <Button
+        android:id="@+id/deco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/boutonDeco"
+        android:background="@android:color/holo_red_light"
+        android:textColor="@android:color/white" />
+
+
+</LinearLayout>

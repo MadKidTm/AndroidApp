@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">GSB</string>
+    <string name="validation">Valider</string>
+    <string name="menu_medecins">Médecins</string>
+    <string name="menu_rapports">Rapports de visite</string>
+    <string name="creation_report">Créer un nouveau rapport</string>
+    <string name="id">identifiant</string>
+    <string name="password">mot de passe</string>
+    <string name="doctor_add">ajouter un médecin</string>
+    <string name="boutonDeco">Deconnexion</string>
+
+    <string name="form_doctor_lastname">Nom</string>
+    <string name="form_doctor_name">Prénom</string>
+    <string name="form_doctor_phone">Tèl</string>
+    <string name="form_doctor_address">Adresse</string>
+    <string name="form_doctor_comp_spe">Spécialité complémentaire</string>
+    <string name="form_doctor_department">Département</string>
+    <string name="form_doctor_send">Valider</string>
+
+
+
+</resources>

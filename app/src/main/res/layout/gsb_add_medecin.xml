@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/doc_nom"
+        android:hint="@string/form_doctor_lastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"/>
+
+    <EditText
+        android:id="@+id/doc_prenom"
+        android:hint="@string/form_doctor_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="1"/>
+
+    <EditText
+        android:id="@+id/doc_adresse"
+        android:hint="@string/form_doctor_address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="3"/>
+
+    <EditText
+        android:id="@+id/doc_tel"
+        android:hint="@string/form_doctor_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:maxLength="10" />
+
+    <EditText
+        android:id="@+id/doc_spe_comp"
+        android:hint="@string/form_doctor_comp_spe"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:maxLines="2"/>
+
+    <EditText
+        android:id="@+id/doc_departement"
+        android:hint ="@string/form_doctor_department"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:maxLength="3"
+        />
+
+    <Button
+        android:id="@+id/doc_send"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="@string/form_doctor_send"
+        android:layout_marginTop="20dp"
+        style="@style/buttonNormal"/>
+
+
+
+
+
+
+
+</LinearLayout>
