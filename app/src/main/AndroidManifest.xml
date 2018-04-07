@@ -31,6 +31,9 @@
         <activity android:name=".AddRepportActivity">
 
         </activity>
+        <activity android:name=".DoctorDetailActivity">
+
+        </activity>
 
     </application>
 

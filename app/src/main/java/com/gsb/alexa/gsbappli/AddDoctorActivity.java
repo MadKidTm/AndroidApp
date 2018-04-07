@@ -86,10 +86,9 @@ public class AddDoctorActivity extends Activity {
                         medecinDao.insertLigne(medecin.getNom(),
                                 medecin.getPrenom(),
                                 medecin.getTel(),
-                                medecin.getTel(),
+                                medecin.getAdresse(),
                                 medecin.getSpecialite_comp(),
                                 medecin.getDepartement());
-
 
                         Toast.makeText(context, "Nouveau medecin enregistré avec succès", Toast.LENGTH_LONG).show();
                     }

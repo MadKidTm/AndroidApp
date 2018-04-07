@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.gsb.alexa.gsbappli.DoctorActivity;
 
+import java.nio.channels.SelectableChannel;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -43,6 +44,25 @@ public class MedecinDAO extends DAOBaseGSB {
         super.open();
     }
 
+    public String[] getMedecinByID(long id){
+
+        Cursor c = getDb().rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+KEY+" = ? ", new String[] {String.valueOf(id)}) ;
+        String[] medecin = new String[7] ;
+
+        while (c.moveToNext()){
+            medecin[0] = String.valueOf(c.getLong(0)) ;
+            medecin[1] = c.getString(1) ;
+            medecin[2] = c.getString(2) ;
+            medecin[3] = c.getString(3) ;
+            medecin[4] = c.getString(4) ;
+            medecin[5] = c.getString(5) ;
+            medecin[6] = c.getString(6) ;
+        }
+
+        c.close();
+        return medecin ;
+    }
+
     public void insertLigne (String nom, String prenom, String adresse, String tel, String comp_spe, String departement){
 
         ContentValues c = new ContentValues();
@@ -55,7 +75,7 @@ public class MedecinDAO extends DAOBaseGSB {
         getDb().insert(TABLE_NAME,null, c);
     }
 
-    public void deleteLigne (int id){
+    public void deleteLigne (long id){
         getDb().delete(TABLE_NAME, KEY+" = ?", new String[] {String.valueOf(id)});
         System.out.print("\n La table d'id "+String.valueOf(id)+" a été suprimé \n");
     }

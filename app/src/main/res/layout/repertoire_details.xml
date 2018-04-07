@@ -1,64 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:id="@+id/detail_background"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@color/colorNormalButton"
+        android:orientation="horizontal"
+        android:layout_marginBottom="30dp"
+        >
+
+        <TextView
+            android:id="@+id/rep_det_lastname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:paddingStart="5dp"
+            android:text = "test"
+            android:textStyle="bold"
+            android:textSize="30sp"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="bottom"/>
+
+        <TextView
+            android:id="@+id/rep_det_firstname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="10dp"
+            android:paddingEnd="0dp"
+            android:layout_marginBottom="10dp"
+            android:text = "test"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorWhite"
+            android:layout_gravity="bottom"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/phone_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/phone_icon"
+        android:layout_below="@id/detail_background"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+
+
+        />
+
+    <TextView
+        android:id="@+id/rep_det_num"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/detail_background"
+        android:layout_toEndOf="@id/phone_icon"
+        android:text="0647836478"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        />
+
+    <TextView
+        android:id="@+id/rep_det_numhint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rep_det_num"
+        android:layout_toEndOf="@id/phone_icon"
+        android:text="Mobile"
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:id="@+id/separator1"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginHorizontal="50dp"
+        android:background="@color/colorNormalButton"
+        android:layout_below="@id/rep_det_numhint"
+        android:layout_marginBottom="5dp"/>
 
 
     <ImageView
-        android:id="@+id/img"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_gravity="center_vertical"
-        android:padding="10px"
+        android:id="@+id/home_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:background="@drawable/home_icon"
+        android:layout_below="@id/separator1"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"/>
+
+    <TextView
+        android:id="@+id/rep_det_adress"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/separator1"
+        android:layout_toEndOf="@id/home_icon"
+        android:text="16 avenue du trident"
+        android:textStyle="bold"
+        android:textSize="16sp"
         />
 
     <TextView
+        android:id="@+id/rep_det_departement"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Nom"/>
+        android:layout_below="@id/separator1"
+        android:layout_toEndOf="@id/rep_det_adress"
+        android:text="06"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
 
     <TextView
+        android:id="@+id/rep_det_departementhint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@id/rep_det_departement"
+        android:layout_toEndOf="@id/rep_det_adress"
+        android:text="Departement"
         />
 
     <TextView
+        android:id="@+id/rep_det_adresshint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Prenom"/>
+        android:layout_below="@id/rep_det_adress"
+        android:layout_toEndOf="@id/home_icon"
+        android:text="Adresse"
+        android:textSize="16sp"/>
 
-    <TextView
+    <ImageView
+        android:id="@+id/separator2"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="1px"
+        android:layout_marginHorizontal="50dp"
+        android:background="@color/colorNormalButton"
+        android:layout_below="@id/rep_det_adresshint"
+        android:layout_marginBottom="5dp"/>
+
+    <ImageView
+        android:id="@+id/med_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_below="@id/separator2"
+        />
 
     <TextView
+        android:id="@+id/rep_det_specomp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Numéro"/>
+        android:layout_below="@id/separator2"
+        android:layout_toEndOf="@id/med_icon"
+        android:text="Chirurgie"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
-    <TextView
+        android:id="@+id/rep_det_specomphint"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Adresse"/>
+        android:layout_below="@id/rep_det_specomp"
+        android:layout_toEndOf="@id/med_icon"
+        android:text="Spécialité complémentaire"
+        android:textSize="16sp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+    <ImageButton
+        android:id="@+id/deleteMedecin"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/trash_icon"
+        android:layout_below="@id/rep_det_specomphint"
+        />
 
 
-
-
-
-
-
-
-
-
-</LinearLayout>
+</RelativeLayout>

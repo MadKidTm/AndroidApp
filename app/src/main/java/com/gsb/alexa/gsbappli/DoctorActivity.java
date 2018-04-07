@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.text.Layout;
 import android.view.View;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.AccelerateInterpolator;
@@ -14,8 +15,10 @@ import android.view.animation.TranslateAnimation;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.gsb.alexa.gsbappli.Classes.MedecinDAO;
@@ -54,33 +57,28 @@ public class DoctorActivity extends Activity {
         listeMedecins = (ListView)findViewById(R.id.doctorList);
 
 
-        MedecinDAO medecinDAO = new MedecinDAO(this);
-        Cursor c = medecinDAO.selectLignes();
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(DoctorActivity.this, AddDoctorActivity.class );
+                startActivity(i);
 
-        ArrayList<HashMap<String, String>> listItem = new ArrayList<HashMap<String, String>>();
-
-        HashMap<String,String> medecin;
-
-        while(c.moveToNext()){
-            medecin = new HashMap<String, String>();
-            medecin.put("id", String.valueOf(c.getLong(0)));
-            medecin.put("img", String.valueOf(R.drawable.icone_contact));
-            medecin.put("nom", c.getString(1) +" "+c.getString(2));
-            medecin.put("adresse", c.getString(3));
-            medecin.put("tel", c.getString(4));
-            medecin.put("spe_comp", c.getString(5));
-            listItem.add(medecin);
-        }
-
-
-
-
+            }
+        });
 
         listeMedecins.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemClick(AdapterView<?> adapterView, View view, int index, long l) {
 
-                Intent i = new Intent(DoctorActivity.this, )
+                System.out.println("Vous cliquez sur : "+adapterView.getItemAtPosition(index));
+
+                HashMap<String, String>  clickedItem = (HashMap<String, String>) adapterView.getItemAtPosition(index);
+                long id = Long.valueOf(clickedItem.get("id"));
+
+                Intent intent = new Intent(DoctorActivity.this, DoctorDetailActivity.class);
+                intent.putExtra("idMedecin", id);
+                startActivity(intent);
+
                 //index = i;
                 //TranslateAnimation animation = new TranslateAnimation(0.0f, -(listeMedecins.getWidth()), 0.0f, 0.0f);
                 //animation.setDuration(500);
@@ -88,26 +86,6 @@ public class DoctorActivity extends Activity {
                 //listeMedecins.getChildAt(i).setAnimation(animation);
                 //animation.start();
                 //animation.setAnimationListener(new Animation.AnimationListener() {
-            }
-        });
-
-
-        //Création d'un SimpleAdapter qui se chargera de mettre les items présent dans notre list (listItem) dans la vue affichageitem
-        SimpleAdapter contactMedecin = new SimpleAdapter (context, listItem, R.layout.repertoire_item,
-                new String[] {"img", "nom", "tel"},
-                new int[] {R.id.img, R.id.nom, R.id.tel});
-
-        //On attribut à notre listView l'adapter que l'on vient de créer
-        listeMedecins.setAdapter(contactMedecin);
-
-
-
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(DoctorActivity.this, AddDoctorActivity.class );
-                startActivity(i);
-
             }
         });
 
@@ -130,11 +108,13 @@ public class DoctorActivity extends Activity {
 
         while(c.moveToNext()){
             medecin = new HashMap<String, String>();
+            medecin.put("id", String.valueOf(c.getLong(0)));
             medecin.put("img", String.valueOf(R.drawable.icone_contact));
             medecin.put("nom", c.getString(1) +" "+c.getString(2));
-            medecin.put("adresse", c.getString(3));
-            medecin.put("tel", c.getString(4));
+            medecin.put("tel", c.getString(3));
+            medecin.put("adresse", c.getString(4));
             medecin.put("spe_comp", c.getString(5));
+            medecin.put("departement", c.getString((6)));
             listItem.add(medecin);
         }
 
