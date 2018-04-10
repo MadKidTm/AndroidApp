@@ -9,6 +9,7 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -36,7 +37,7 @@ public class AddRepportActivity extends Activity {
     private Spinner medecin = null;
     private Spinner medicament = null;
     private EditText quantite = null;
-    private EditText date = null;
+    private DatePicker date = null;
     private EditText motif = null;
     private EditText bilan = null;
 
@@ -62,7 +63,7 @@ public class AddRepportActivity extends Activity {
         medecin = (Spinner)findViewById(R.id.rap_medecin);
         medicament = (Spinner)findViewById(R.id.rap_medicament);
         quantite = (EditText)findViewById(R.id.rap_quantite);
-        date = (EditText)findViewById(R.id.rap_date);
+        date = (DatePicker)findViewById(R.id.rap_date);
         motif = (EditText)findViewById(R.id.rap_motif);
         bilan = (EditText)findViewById(R.id.rap_bilan);
         send = (Button)findViewById(R.id.rap_send);
@@ -70,11 +71,11 @@ public class AddRepportActivity extends Activity {
         Intent i = getIntent();
         visiteur = i.getParcelableExtra("com.gsb.alexa.gsbappli.Classes.Visiteur");
 
-        Date aujourdhui = new Date();
+        /*Date aujourdhui = new Date();
         SimpleDateFormat formater = new SimpleDateFormat("dd/MM/YYYY ");
-        String now = formater.format(aujourdhui);
+        String now = formater.format(aujourdhui);*/
 
-        date.setText(now);
+        //date.setText(now);
 
         medecinDAO.getMedecins(medecins);
         medicamentDAO.getMedicaments(medicaments);
@@ -91,7 +92,9 @@ public class AddRepportActivity extends Activity {
                 this, android.R.layout.simple_spinner_dropdown_item, medicaments);
         medicament.setAdapter(adapter);
 
-        date.addTextChangedListener(textWatcher);
+        //date.addTextChangedListener(textWatcher);
+
+
 
 
 
@@ -126,7 +129,7 @@ public class AddRepportActivity extends Activity {
                     rapport.setIdVisiteur(visiteur.getId());
                 }
 
-                //Partie qui gère la date
+                /*Partie qui gère la date
                 textDate = date.getText().toString();
                 if(textDate.length() != 0){
                     String jour = textDate.substring(0,2);
@@ -137,14 +140,19 @@ public class AddRepportActivity extends Activity {
 
                     if( jour.length() == 2 && mois.length() == 2 && annee.length() == 4 ){
 
-                        date.setHint("JJ/MM/YYYY");
-                        date.setHintTextColor(getResources().getColor(R.color.errorColor, null));
+                    date.setHint("JJ/MM/YYYY");
+                    date.setHintTextColor(getResources().getColor(R.color.errorColor, null));
 
-                        rapport.setDate(annee+"-"+mois+"-"+jour);
-                    } else {
-                        date.setText("");
-                    }
+                    rapport.setDate(annee+"-"+mois+"-"+jour);
+                } else {
+                    date.setText("");
                 }
+            }*/
+                String jour = String.valueOf(date.getDayOfMonth());
+                String mois = String.valueOf(date.getMonth());
+                String annee = String.valueOf(date.getYear());
+
+                rapport.setDate(annee+"-"+mois+"-"+jour);
 
                 if(motif.getText().toString().length() == 0){
                     motif.setHintTextColor(getResources().getColor(R.color.errorColor, null));

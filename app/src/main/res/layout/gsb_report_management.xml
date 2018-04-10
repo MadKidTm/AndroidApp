@@ -35,14 +35,14 @@
         android:layout_marginBottom="20dp" />
 
 
-    <EditText
+    <DatePicker
         android:id="@+id/rap_date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Date"
-        android:inputType="date"
-        android:layout_below="@id/rap_medecin"
-        android:maxLength="10"/>
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/rap_medecin"
+        android:calendarViewShown="false"
+        android:datePickerMode="spinner" />
 
     <EditText
         android:id="@+id/rap_motif"

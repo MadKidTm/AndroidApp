@@ -75,7 +75,7 @@ public class DoctorDetailActivity extends Activity {
                 AlertDialog.Builder alert = new AlertDialog.Builder(context);
 
                 alert.setMessage("Voulez vous vraiment supprimer ce medecin ?");
-                alert.setTitle("Warning");
+                alert.setTitle("Attention");
                 alert.setIcon(R.drawable.warning_icon);
 
                 alert.setPositiveButton("Supprimer", new DialogInterface.OnClickListener() {

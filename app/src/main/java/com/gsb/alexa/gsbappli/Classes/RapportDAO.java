@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import java.util.ArrayList;
+
 /**
  * Created by Alexa on 24/03/2018.
  */
@@ -45,14 +47,17 @@ public class RapportDAO extends DAOBaseGSB{
 
 
     }
-    public void getRapports(){
-        Cursor c = getDb().rawQuery("SELECT "+KEY+" FROM "+TABLE_NAME, null);
+
+
+    public Cursor getRapportsByDate(String date){
+        Cursor c = getDb().rawQuery("SELECT "+KEY+" FROM "+TABLE_NAME+" WHERE "+DATE+" = ?", new String[] {date});
 
         while(c.moveToNext()){
             System.out.println(c.getLong(0));
-            System.out.println("test");
         }
         c.close();
+
+        return c;
     }
 
     public void deleteAll(){
@@ -94,6 +99,16 @@ public class RapportDAO extends DAOBaseGSB{
 
         return c;
 
+    }
+
+    public void getDates(ArrayList<String> dates){
+        Cursor c = getDb().rawQuery("SELECT DISTINCT "+DATE+" FROM "+ TABLE_NAME, null);
+
+        while(c.moveToNext()){
+            dates.add(c.getString(0));
+        }
+
+        c.close();
     }
 
 

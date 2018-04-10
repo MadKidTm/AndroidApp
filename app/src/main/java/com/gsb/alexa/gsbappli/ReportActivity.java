@@ -6,9 +6,12 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.gsb.alexa.gsbappli.Classes.MedecinDAO;
@@ -33,6 +36,8 @@ public class ReportActivity extends Activity {
 
     ListView listeRapports = null;
 
+    Spinner dateSelect = null;
+
     Visiteur visiteur ;
 
     Context context = this;
@@ -44,22 +49,23 @@ public class ReportActivity extends Activity {
         setContentView(R.layout.gsb_rapports);
         Intent i = getIntent();
 
-        Date date;
-        SimpleDateFormat formater = new SimpleDateFormat("dd/MM/YYYY");
-
-        //OffrirDAO offrirDAO = new OffrirDAO(context);
-        //offrirDAO.selectLignes();
-
         visiteur = i.getParcelableExtra("com.gsb.alexa.gsbappli.Classes.Visiteur");
 
 
         nouveauRapport = (Button)findViewById(R.id.nouveau_rapport);
         listeRapports = (ListView)findViewById(R.id.rapport_list) ;
+        dateSelect = (Spinner)findViewById(R.id.repport_date_select);
 
-        date = new Date();
-        String aujourdhui = formater.format(date);
 
-        RapportDAO rapportDAO = new RapportDAO(context);
+
+
+    }
+
+    public void onResume(){
+        super.onResume();
+
+        RapportDAO rapportDAO = new RapportDAO(this);
+
         Cursor c = rapportDAO.getAllRapports();
 
         ArrayList<HashMap<String, String>> listItem = new ArrayList<HashMap<String, String>>();
@@ -72,6 +78,8 @@ public class ReportActivity extends Activity {
             rapport.put("date", c.getString(1));
             rapport.put("motif", c.getString(2));
             listItem.add(rapport);
+
+            System.out.println("motif vaut : "+c.getString(2));
         }
         c.close();
 
@@ -89,21 +97,19 @@ public class ReportActivity extends Activity {
             public void onClick(View view) {
 
 
-                //if(medecinDAO.isEmpty()){
-                  //  Toast.makeText(context, "Vous devez ajoutez au moins un médecin avant de créer un rapport", Toast.LENGTH_LONG).show();
-                //}else {
-
-                    Intent i = new Intent(ReportActivity.this, AddRepportActivity.class);
-                    i.putExtra("com.gsb.alexa.gsbappli.Classes.Visiteur", visiteur);
-                    startActivity(i);
-                //}
-
+                Intent i = new Intent(ReportActivity.this, AddRepportActivity.class);
+                i.putExtra("com.gsb.alexa.gsbappli.Classes.Visiteur", visiteur);
+                startActivity(i);
 
             }
         });
 
+        listeRapports.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-
+            }
+        });
 
 
     }

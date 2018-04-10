@@ -11,6 +11,14 @@
         android:text="@string/creation_report"
         style="@style/buttonNormal"/>
 
+    <Spinner
+        android:id="@+id/repport_date_select"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp">
+
+    </Spinner>
+
     <ListView
         android:id="@+id/rapport_list"
         android:layout_width="match_parent"

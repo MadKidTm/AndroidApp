@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:id="@+id/repport_background"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorNormalButton"
+        android:gravity="bottom">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Rapport du 4-9-2018"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="nom du medecin"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/det_motif_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="5dp"
+        android:layout_below="@id/repport_background" />
+
+    <TextView
+        android:id="@+id/det_motif"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/repport_background"
+        android:layout_toEndOf="@id/det_motif_icon"
+        android:textSize="16sp"
+        android:text="Visite chez blablabla" />
+
+    <ImageView
+        android:id="@+id/det_medicament_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_below="@id/det_motif_icon"
+        />
+
+    <TextView
+        android:id="@+id/det_medicament"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/det_motif_icon"
+        android:layout_toEndOf="@id/det_medicament_icon"/>
+
+    <TextView
+        android:id="@+id/det_medicament_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/det_medicament"
+        android:layout_toEndOf="@id/det_medicament_icon"
+        android:text="Medicament proposé"
+        />
+
+    <ImageView
+        android:id="@+id/det_bilan_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_below="@id/det_medicament_icon"
+        />
+
+    <TextView
+        android:id="@+id/det_bilan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/det_medicament_icon"
+        android:layout_toEndOf="@id/det_bilan_icon"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/det_bilan"
+        android:layout_toEndOf="@id/det_bilan_icon"/>
+
+
+
+
+
+</RelativeLayout>
