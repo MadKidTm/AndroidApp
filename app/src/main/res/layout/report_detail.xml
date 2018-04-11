@@ -15,12 +15,14 @@
         android:gravity="bottom">
 
         <TextView
+            android:id="@+id/det_date_report"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Rapport du 4-9-2018"
             />
 
         <TextView
+            android:id="@+id/det_name_report"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="nom du medecin"/>
@@ -43,7 +45,8 @@
         android:layout_below="@id/repport_background"
         android:layout_toEndOf="@id/det_motif_icon"
         android:textSize="16sp"
-        android:text="Visite chez blablabla" />
+        android:text="Visite chez blablabla"
+        android:textStyle="bold"/>
 
     <ImageView
         android:id="@+id/det_medicament_icon"
@@ -51,25 +54,29 @@
         android:layout_height="30dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="20dp"
         android:layout_below="@id/det_motif_icon"
+        />
+
+
+
+    <TextView
+        android:id="@+id/det_medicament_hint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/det_motif_icon"
+        android:layout_toEndOf="@id/det_medicament_icon"
+        android:text="Medicament proposé :"
         />
 
     <TextView
         android:id="@+id/det_medicament"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/det_motif_icon"
-        android:layout_toEndOf="@id/det_medicament_icon"/>
-
-    <TextView
-        android:id="@+id/det_medicament_hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/det_medicament"
+        android:layout_below="@id/det_medicament_hint"
         android:layout_toEndOf="@id/det_medicament_icon"
-        android:text="Medicament proposé"
-        />
+        android:text="3 x doliprane"
+        android:textStyle="bold"/>
 
     <ImageView
         android:id="@+id/det_bilan_icon"
@@ -81,17 +88,25 @@
         />
 
     <TextView
+        android:id="@+id/det_bilan_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/det_medicament_icon"
+        android:layout_toEndOf="@id/det_bilan_icon"
+        android:text="Bilan"/>
+
+    <TextView
         android:id="@+id/det_bilan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/det_medicament_icon"
-        android:layout_toEndOf="@id/det_bilan_icon"/>
+        android:layout_below="@id/det_bilan_hint"
+        android:layout_toEndOf="@id/det_bilan_icon"
+        android:text="blablbla"
+        android:textStyle="bold"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/det_bilan"
-        android:layout_toEndOf="@id/det_bilan_icon"/>
+
+
+
 
 
 

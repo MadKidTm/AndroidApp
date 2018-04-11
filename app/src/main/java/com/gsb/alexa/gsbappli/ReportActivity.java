@@ -57,8 +57,6 @@ public class ReportActivity extends Activity {
         dateSelect = (Spinner)findViewById(R.id.repport_date_select);
 
 
-
-
     }
 
     public void onResume(){
@@ -107,6 +105,13 @@ public class ReportActivity extends Activity {
         listeRapports.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                long id;
+                HashMap<String, String> rapport = (HashMap<String, String >)adapterView.getItemAtPosition(i);
+                id = Long.valueOf(rapport.get("id"));
+
+                Intent intent = new Intent(ReportActivity.this, ReportDetailActivity.class);
+                intent.putExtra("id", id);
+                startActivity(intent);
 
             }
         });

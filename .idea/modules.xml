@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/GSBappli.iml" filepath="$PROJECT_DIR$/GSBappli.iml" />
+      <module fileurl="file://$PROJECT_DIR$/AndroidApp.iml" filepath="$PROJECT_DIR$/AndroidApp.iml" />
+      <module fileurl="file://C:\Users\Alex\AndroidStudioProjects\AndroidApp\GSBappli.iml" filepath="C:\Users\Alex\AndroidStudioProjects\AndroidApp\GSBappli.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

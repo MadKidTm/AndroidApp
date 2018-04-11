@@ -34,6 +34,9 @@
         <activity android:name=".DoctorDetailActivity">
 
         </activity>
+        <activity android:name=".ReportDetailActivity">
+
+        </activity>
 
     </application>
 

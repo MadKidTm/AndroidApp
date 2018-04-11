@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Alexa on 24/03/2018.
@@ -109,6 +110,25 @@ public class RapportDAO extends DAOBaseGSB{
         }
 
         c.close();
+    }
+
+    public HashMap<String, String> getRapportById(long id){
+        HashMap<String, String> rapport = new HashMap<String, String>();
+
+        Cursor c = getDb().rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+KEY+" = ? ", new String[] {String.valueOf(id)});
+
+        while (c.moveToNext()) {
+            rapport.put("id", String.valueOf(c.getLong(0)));
+            rapport.put("date", c.getString(1));
+            rapport.put("motif", c.getString(2));
+            rapport.put("bilan", c.getString(3));
+            rapport.put("idMedecin", String.valueOf(c.getLong(4)));
+            rapport.put("idVisiteur", String.valueOf(c.getLong(4)));
+        }
+
+        c.close();
+
+        return rapport;
     }
 
 
