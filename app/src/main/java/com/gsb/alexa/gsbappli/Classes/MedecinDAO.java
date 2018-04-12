@@ -167,5 +167,41 @@ public class MedecinDAO extends DAOBaseGSB {
         return id;
     }
 
+    public long getIdMedecin(String nom){
+        long id = 0;
+
+        Cursor c = getDb().rawQuery("SELECT "+ KEY +
+                " FROM "+TABLE_NAME+
+                " WHERE "+LAST_NAME+" = ?" , new String[] {nom});
+
+        while(c.moveToNext()){
+            id = c.getLong(0);
+        }
+
+        c.close();
+
+        return id;
+
+    }
+
+    public HashMap<String, String> getMedecinById(long id){
+        HashMap<String, String> medecin = new HashMap<String, String>();
+
+        Cursor c = getDb().rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+KEY+" = ? ", new String[] {String.valueOf(id)}) ;
+
+        while ( c.moveToNext()){
+            medecin.put("id", String.valueOf(c.getLong(0)));
+            medecin.put("nom", c.getString(1));
+            medecin.put("prenom", c.getString(2));
+            medecin.put("adresse", c.getString(3));
+            medecin.put("tel", c.getString(4));
+            medecin.put("specialite_complementaire", c.getString(5));
+            medecin.put("departement", c.getString(6));
+        }
+        c.close();
+
+        return medecin;
+    }
+
 
 }

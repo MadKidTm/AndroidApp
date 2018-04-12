@@ -92,6 +92,8 @@ public class AddRepportActivity extends Activity {
                 this, android.R.layout.simple_spinner_dropdown_item, medicaments);
         medicament.setAdapter(adapter);
 
+        System.out.println(("mon id medecin : "+ medecinDAO.getIdMedecin("Vacquier ")));
+
         //date.addTextChangedListener(textWatcher);
 
 
@@ -125,29 +127,16 @@ public class AddRepportActivity extends Activity {
                     String nomMedecin =  identiteMedecin.substring(0, identiteMedecin.indexOf(' '));
                     String prenomMedecin = identiteMedecin.substring(identiteMedecin.indexOf(' ')+1);
 
+
+
+
+
                     rapport.setIdMedecin(medecinDAO.getIdMedecin(nomMedecin, prenomMedecin));
+                    System.out.println("IdMedecin vaut : "+rapport.getIdMedecin());
                     rapport.setIdVisiteur(visiteur.getId());
                 }
 
-                /*Partie qui gère la date
-                textDate = date.getText().toString();
-                if(textDate.length() != 0){
-                    String jour = textDate.substring(0,2);
-                    String mois = textDate.substring(3,5);
-                    String annee = textDate.substring(6);
 
-
-
-                    if( jour.length() == 2 && mois.length() == 2 && annee.length() == 4 ){
-
-                    date.setHint("JJ/MM/YYYY");
-                    date.setHintTextColor(getResources().getColor(R.color.errorColor, null));
-
-                    rapport.setDate(annee+"-"+mois+"-"+jour);
-                } else {
-                    date.setText("");
-                }
-            }*/
                 String jour = String.valueOf(date.getDayOfMonth());
                 String mois = String.valueOf(date.getMonth());
                 String annee = String.valueOf(date.getYear());
@@ -187,7 +176,7 @@ public class AddRepportActivity extends Activity {
                     offrir.setIdRapport(rapportDAO.getRapportId(rapport.getDate(), rapport.getBilan()));
                     System.out.println("idRapport = "+ rapportDAO.getRapportId(rapport.getDate(), rapport.getBilan()));
 
-                    //offrirDAO.insertLigne(offrir.getIdRapport(), offrir.getIdMedicament(), offrir.getQuantite());
+                    offrirDAO.insertLigne(offrir.getIdRapport(), offrir.getIdMedicament(), offrir.getQuantite());
 
 
 

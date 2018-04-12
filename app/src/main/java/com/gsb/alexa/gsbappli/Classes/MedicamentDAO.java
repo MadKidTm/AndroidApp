@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by Alexa on 24/03/2018.
@@ -13,8 +14,8 @@ import java.util.ArrayList;
 public class MedicamentDAO extends DAOBaseGSB {
 
     public static final String KEY = "id";
-    public static final String FAMILLE = "idFamille";
     public static final String NAME = "nom_commercial";
+    public static final String FAMILLE = "idFamille";
     public static final String COMPOSITION = "composition";
     public static final String EFFECTS = "effets";
     public static final String CONTRE_INDIC = "contre_indications";
@@ -95,6 +96,25 @@ public class MedicamentDAO extends DAOBaseGSB {
         c.close();
 
         return result;
+    }
+
+    public HashMap<String, String> getMedicamentById(long id){
+        HashMap<String, String > medicament = new HashMap<String, String>();
+
+        Cursor c = getDb().rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+KEY+" = ?", new String[] {String.valueOf(id)});
+
+        while ( c.moveToNext()){
+            medicament.put("id", String.valueOf(c.getLong(0)));
+            medicament.put("nom", c.getString(1));
+            medicament.put("idFamille", String.valueOf(c.getLong(2)));
+            medicament.put("composition", c.getString(3));
+            medicament.put("effets", c.getString(4));
+            medicament.put("contre_indications", c.getString(5));
+        }
+
+        c.close();
+
+        return medicament;
     }
 
 

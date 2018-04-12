@@ -4,6 +4,8 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 
+import java.util.HashMap;
+
 /**
  * Created by Alexa on 24/03/2018.
  */
@@ -50,6 +52,35 @@ public class OffrirDAO extends DAOBaseGSB {
 
     public void deleteAll(){
         getDb().delete(TABLE_NAME, AMOUNT+">0", null);
+    }
+
+    public HashMap<String, String> getOffreByIdRapport(long id){
+        HashMap<String, String> offre = new HashMap<String, String>();
+
+        Cursor c = getDb().rawQuery("SELECT * FROM "+TABLE_NAME+" WHERE "+RAPPORT_KEY+" = ?", new String[]{String.valueOf(id)});
+
+        while ( c.moveToNext()){
+            offre.put("idMedicament", String.valueOf(c.getLong(0)));
+            offre.put("idRapport", String.valueOf(c.getLong(1)));
+            offre.put("quantite", c.getString(2));
+
+        }
+
+        c.close();
+
+        return offre;
+    }
+
+    public void test(){
+        Cursor c = getDb().rawQuery("SELECT * FROM "+TABLE_NAME, null);
+
+        while ( c.moveToNext()){
+            System.out.println(c.getLong(0));
+            System.out.println(c.getLong(1));
+            System.out.println(c.getString(2));
+
+        }
+        c.close();
     }
 
 
