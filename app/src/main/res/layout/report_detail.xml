@@ -32,102 +32,119 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/det_motif_icon"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="15dp"
-        android:layout_below="@id/repport_background" />
-
-    <TextView
-        android:id="@+id/det_motif_hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/repport_background"
-        android:layout_toEndOf="@id/det_motif_icon"/>
-
-    <TextView
-        android:id="@+id/det_motif"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:layout_below="@id/det_motif_hint"
-        android:layout_toEndOf="@id/det_motif_icon"
-        android:textSize="18sp"
-        android:text="Visite chez blablabla"
-        android:textStyle="bold"/>
-
-    <ImageView
-        android:id="@+id/det_medicament_icon"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        android:layout_below="@id/det_motif_icon"
-        />
-
-
-
-    <TextView
-        android:id="@+id/det_medicament_hint"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_below="@id/det_motif_icon"
-        android:layout_toEndOf="@id/det_medicament_icon"
-        android:text="Medicament proposé :"
-        />
-
-    <TextView
-        android:id="@+id/det_medicament"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/det_medicament_hint"
-        android:layout_toEndOf="@id/det_medicament_icon"
-        android:textSize="18sp"
-        android:text="3 x doliprane"
-        android:textStyle="bold"/>
-
-    <ImageView
-        android:id="@+id/det_bilan_icon"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:layout_below="@id/det_medicament_icon"
-        />
-
-    <TextView
-        android:id="@+id/det_bilan_hint"
+    <RelativeLayout
+        android:id="@+id/layout_rapport"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/det_medicament_icon"
-        android:layout_toEndOf="@id/det_bilan_icon"
-        android:text="Bilan"/>
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_below="@id/repport_background" >
 
-    <TextView
-        android:id="@+id/det_bilan"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/det_bilan_hint"
-        android:layout_toEndOf="@id/det_bilan_icon"
-        android:text="blablbla"
-        android:textSize="18sp"
-        android:textStyle="bold"/>
+        <ImageView
+            android:id="@+id/det_motif_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/fiche_icon"
+             />
+
+        <TextView
+            android:id="@+id/det_motif_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/det_motif_icon"
+            android:text="Motif:"/>
+
+        <TextView
+            android:id="@+id/det_motif"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_below="@id/det_motif_hint"
+            android:layout_toEndOf="@id/det_motif_icon"
+            android:textSize="18sp"
+            android:text="Visite chez blablabla"
+            android:textStyle="bold"
+
+            />
+
+        <ImageView
+            android:id="@+id/det_medicament_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_below="@id/det_motif_icon"
+            android:background="@drawable/medicament_icon"
+            />
 
 
 
+        <TextView
+            android:id="@+id/det_medicament_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:layout_below="@id/det_motif_icon"
+            android:layout_toEndOf="@id/det_medicament_icon"
+            android:text="Medicament proposé :"
+            />
 
+        <TextView
+            android:id="@+id/det_medicament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/det_medicament_hint"
+            android:layout_toEndOf="@id/det_medicament_icon"
+            android:textSize="18sp"
+            android:text="3 x doliprane"
+            android:textStyle="bold"/>
 
+        <ImageView
+            android:id="@+id/det_bilan_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_below="@id/det_medicament_icon"
+            />
 
+        <TextView
+            android:id="@+id/det_bilan_hint"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/det_medicament_icon"
+            android:layout_toEndOf="@id/det_bilan_icon"
+            android:text="Bilan"/>
 
+        <TextView
+            android:id="@+id/det_bilan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/det_bilan_hint"
+            android:layout_toEndOf="@id/det_bilan_icon"
+            android:text="blablbla"
+            android:textSize="18sp"
+            android:textStyle="bold"/>
+    </RelativeLayout>
 
+    <ImageButton
+        android:id="@+id/deleteRapport"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/trash_icon"
+        android:layout_below="@id/layout_rapport"
+        />
 
 </RelativeLayout>

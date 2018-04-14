@@ -62,7 +62,7 @@ public class RapportDAO extends DAOBaseGSB{
     }
 
     public void deleteAll(){
-        getDb().delete(TABLE_NAME, KEY+ " < 20", null);
+        getDb().delete(TABLE_NAME, KEY+ " < 100", null);
     }
 
     public long getRapportId(String date, String result){
@@ -130,6 +130,12 @@ public class RapportDAO extends DAOBaseGSB{
 
         return rapport;
     }
+
+    public void deleteById(long id){
+        getDb().delete(TABLE_NAME, KEY+" = ?", new String[] {String.valueOf(id)});
+
+    }
+
 
 
 
